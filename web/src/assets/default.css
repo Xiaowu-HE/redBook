@@ -1,0 +1,29 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  user-select: none;
+  /* 火狐浏览器 隐藏滚动条 */
+  scrollbar-width: none;
+}
+/* // 谷歌pc端 隐藏滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+}
+/* // 谷歌 移动端 需要设置html,body的width和height */
+html,
+body {
+  overflow: scroll;
+  font-family: '思源黑体';
+  font-size: 26.66667vw;
+}
+body::-webkit-scrollbar {
+  width: 0px;
+}
+
+@font-face {
+  font-family: '思源黑体';
+  src: url(./iconfont/SourceHanSansSC-Regular-2.otf);
+}

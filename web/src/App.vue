@@ -1,32 +1,45 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <router-view></router-view>
+    <nav-vue v-show="$route.meta.show"></nav-vue>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import NavVue from './components/Nav.vue';
+export default {
+  name:"App",
+  components:{
+    NavVue
+  },
+  data() {
+    return {
+      width:document.documentElement.clientWidth,
+      height:document.documentElement.clientHeight
     }
-  }
+  },
+  methods:{
+    
+    // 比较浏览器可见区域的宽高
+    compareVwAndVh(){
+      if(this.width<this.height){
+        document.getElementsByTagName('html')[0].style.fontSize = '26.66667vw'
+      }else{
+        document.getElementsByTagName('html')[0].style.fontSize = '26.66667vh'
+      }
+    }
+  },
+  mounted(){
+    this.compareVwAndVh()
+    // 监听浏览器宽高
+    window.onresize = ()=>{
+      this.width = document.documentElement.clientWidth
+      this.height = document.documentElement.clientHeight
+      this.compareVwAndVh()
+    }
+  },
 }
+</script>
+
+<style lang="less">
 </style>
