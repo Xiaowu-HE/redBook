@@ -7,9 +7,11 @@ import store from './store'
 import "@/assets/default.css"
 import "@/assets/iconfont/iconfont.css"
 
-// 应入全局vant icon
-import {Icon} from "vant"
+// 引入全局 icon toast
+import {Icon,Toast,Dialog} from "vant"
 Vue.use(Icon)
+Vue.use(Toast)
+Vue.use(Dialog)
 
 Vue.config.productionTip = false
 

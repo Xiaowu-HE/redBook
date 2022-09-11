@@ -8,7 +8,7 @@
         <router-link to="/shop">购物</router-link>
       </li>
       <li>
-        <div class="add" @click="$router.push('/upload')"><span>+</span></div>
+        <div class="add" @click="$router.push('upload')"><span>+</span></div>
       </li>
       <li>
         <router-link to="/message">消息</router-link>
@@ -23,7 +23,6 @@
 <script>
 export default {
   name: "Nav",
-
 }
 </script>
 

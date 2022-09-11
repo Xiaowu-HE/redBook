@@ -44,6 +44,22 @@ const routes = [
     meta:{
       title: "发布笔记",
       show:false
+    },
+    beforeEnter:(to,from,next)=>{
+      let path = from.fullPath
+      if(path=="/home"||path=="/person"||path=="/shop"||path=="/message"){
+        to.meta.path=path
+      }
+      next()
+    }
+  },
+  {
+    path:'/address',
+    component: () => import("@/views/Address"),
+    name:"Address",
+    meta:{
+      title:"选择地点",
+      show:false
     }
   },
   {
